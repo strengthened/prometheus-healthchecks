@@ -31,7 +31,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
 		<require.maven.version>[3.3, 3.4)</require.maven.version>
-		<require.java.version>[1.7.0,1.8)</require.java.version>
+		<require.java.version>[1.7.0,9)</require.java.version>
 		<extra-enforcer-rules.version>1.0-beta-7</extra-enforcer-rules.version>
 		<checkstyle.version>6.19</checkstyle.version>
 
