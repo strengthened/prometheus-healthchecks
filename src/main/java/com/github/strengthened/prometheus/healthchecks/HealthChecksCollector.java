@@ -119,6 +119,7 @@ public class HealthChecksCollector extends Collector {
    * Link a collection of application {@link HealthCheck}.
    *
    * @param healthChecks the {@code name} - {@link HealthCheck} map
+   * @param <T> any type extending {@link HealthCheck}
    * @return a modified instance of this {@code HealthChecksCollector}.
    * @throws IllegalArgumentException if a {@link HealthCheck} instance is already linked
    */
