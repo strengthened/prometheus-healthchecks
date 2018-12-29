@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.strengthened</groupId>
 	<artifactId>prometheus-healthchecks</artifactId>
-	<version>0.9.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Prometheus Java Simpleclient Healthchecks</name>
 	<description>Metrics collector for Healthcheck system.</description>
 	<url>https://github.com/strengthened/prometheus-healthchecks</url>
