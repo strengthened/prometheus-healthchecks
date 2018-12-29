@@ -17,6 +17,7 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
+import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -85,12 +86,15 @@ public class HealthChecksCollectorTest {
   @Test
   public void shouldChangeValueAsync() throws Exception {
     String name = "name";
-    AsyncTestHealthCheck healthCheck = new AsyncTestHealthCheck(HealthStatus.HEALTHY);
+    final AsyncTestHealthCheck healthCheck = new AsyncTestHealthCheck(HealthStatus.HEALTHY);
     underTest.addHealthCheck(name, healthCheck);
     assertMetric(registry, name, HealthStatus.UNHEALTHY.value);
-    await().atLeast(TWO_HUNDRED_MILLISECONDS);
+    await().atLeast(ONE_HUNDRED_MILLISECONDS).until(new Callable<Boolean>() {
+      @Override
+      public Boolean call() throws Exception {
+        return healthCheck.getCalled() > 0;
+      }});
     assertMetric(registry, name, HealthStatus.HEALTHY.value);
-    assertThat(healthCheck.getCalled()).isGreaterThan(0);
   }
 
   @Test
